@@ -1,0 +1,32 @@
+[
+  {
+    "id": "fa1077e0-2640-497e-b3b1-025500b3821f",
+    "title": "Learn TypeScript concepts",
+    "description": "Build a real project to understand TypeScript",
+    "priority": "high",
+    "status": "done",
+    "createdAt": "2025-10-03T04:54:29.804Z",
+    "updatedAt": "2025-10-03T04:55:53.357Z",
+    "startedAt": "2025-10-03T04:55:11.597Z",
+    "estimatedHours": 4,
+    "completedAt": "2025-10-03T04:55:53.357Z",
+    "actualHours": 3
+  },
+  {
+    "id": "5e750802-48b4-4cec-99e2-0a40c55ac7ac",
+    "title": "Implement user authentication",
+    "description": "Add login and registration",
+    "priority": "medium",
+    "status": "todo",
+    "createdAt": "2025-10-03T04:54:44.085Z",
+    "updatedAt": "2025-10-03T04:54:44.085Z"
+  },
+  {
+    "id": "eee6e520-8b89-47a7-9ba0-36b088e1b6df",
+    "title": "Write documentation",
+    "priority": "low",
+    "status": "todo",
+    "createdAt": "2025-10-03T04:54:56.379Z",
+    "updatedAt": "2025-10-03T04:54:56.379Z"
+  }
+]

@@ -1,0 +1,29 @@
+{
+    "name": "typescript-task-manager",
+    "version": "1.0.0",
+    "description": "A CLI task management application built to learn TypeScript concepts",
+    "main": "dist/index.js",
+    "scripts": {
+        "build": "tsc",
+        "dev": "tsc --watch",
+        "start": "node dist/index.js",
+        "clean": "rmdir /s /q dist"
+    },
+    "keywords": [
+        "typescript",
+        "cli",
+        "task-management",
+        "learning"
+    ],
+    "author": "TypeScript Learner",
+    "license": "MIT",
+    "devDependencies": {
+        "@types/node": "^20.0.0",
+        "typescript": "^5.0.0"
+    },
+    "dependencies": {
+        "@types/uuid": "^10.0.0",
+        "commander": "^11.0.0",
+        "uuid": "^13.0.0"
+    }
+}
