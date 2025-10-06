@@ -42,3 +42,4 @@ export function calculateTaskDuration(task: Task): number | null {
   }
   return null; // Can't calculate duration for incomplete tasks
 }
+
