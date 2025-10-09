@@ -23,56 +23,69 @@ interface Bottle {
 identityFour<Bottle>({
   brand: "coke",
   type: 2,
-
 });
 
+function getSearchProducts<T>(products: T[]): T {
+  const myIndex = 3;
+  return products[myIndex]!;
+}
+// function getLessPeople<T>(animals:T[]):T{
+//     return animals[6]!
+// }
+// const getMorePeople=<T>(people: T[]): T=>{
+//    const myIndex = 5
+//    return people[myIndex]!
+// }
+const getMoreSearchProducts = <T>(products: T[]): T => {
+  //some database operations
+  const myIndex = 6;
+  return products[myIndex]!;
+};
 
-function getSearchProducts<T>(products : T[]): T{
-    const myIndex = 3
-    return products[myIndex]!
-
+interface Database {
+  connection: string;
+  username: string;
+  password: string;
 }
 
-const getMoreSearchProducts = <T,>(products: T[]):T =>{
-    //some database operations
-    const myIndex =6
-    return products[myIndex]!
-} 
+// function anotherFunction1<T, U extends Database>(
+//   valueone: T,
+//   valuetwo: U
+// ): object {
+//   return {
+//     valueone,
+//     valuetwo,
+//   };
+// }
+// anotherFunction1("9", {
+//   connection: "",
+//   password: "",
+//   username: "",
+// });
 
-interface Database{
-    connection: string
-    username: string
-    password: string
-}
-
-
-
-function anotherFunction<T,U>(valueOne:T, valueTwo:U): object{
- return{
+function anotherFunction<T, U>(valueOne: T, valueTwo: U): object {
+  return {
     valueOne,
-    valueTwo
- }
+    valueTwo,
+  };
 }
 
-anotherFunction(3,true)
+anotherFunction(3, true);
 
-
-interface Quiz{
-    name: string
-    type: string
+interface Quiz {
+  name: string;
+  type: string;
 }
 
-
-interface Course{
-    name: string,
-    author : string, 
-    subject: string
+interface Course {
+  name: string;
+  author: string;
+  subject: string;
 }
 
-
-class Sellable<T>{
-    public cart: T[]=[]
-    addToCart(product: T){
-        this.cart.push(product)
-    }
+class Sellable<T> {
+  public cart: T[] = [];
+  addToCart(product: T) {
+    this.cart.push(product);
+  }
 }

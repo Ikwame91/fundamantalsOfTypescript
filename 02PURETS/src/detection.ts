@@ -1,4 +1,13 @@
 //function
+function detectType(val: number | string) {
+  if (typeof val === "string") {
+    val.toLowerCase;
+  }
+  if (typeof val === "number") {
+    val + 90;
+  }
+}
+
 function provideId(id: string | null) {
   if (!id) {
     console.log("please provide an ID");

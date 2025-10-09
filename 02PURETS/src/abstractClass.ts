@@ -12,14 +12,14 @@ class Instagram extends TakePhoto {
   constructor(
     public cameraMode: string,
     public filter: string,
-    public burst: string
+    public burst: stringl
   ) {
-    super(cameraMode, filter);
+    // super(cameraMode, filter);
   }
   getSepia(): void {
     console.log("Method not implemented.");
   }
-}
+}f
 
 const kwame = new Instagram("ttfot", "janut", "lovia");
 kwame.getReelTime
