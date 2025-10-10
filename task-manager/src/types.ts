@@ -29,7 +29,7 @@ export interface BaseTaskData {
   updatedAt: Date;
 }
 
-// Task priority enum
+// Task priority/ enum
 export enum TaskPriority {
   LOW = "low",
   MEDIUM = "medium",

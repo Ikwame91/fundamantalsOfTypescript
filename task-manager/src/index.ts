@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+///the shebang
+
 import { Command } from "commander";
 import { TaskService } from "./task-service";
 import { TaskPriority } from "./types";
