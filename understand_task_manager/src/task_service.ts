@@ -22,7 +22,7 @@ export class TaskService {
     priority: TaskPriority = TaskPriority.MEDIUM
   ): TodoTask {
     const newTask: TodoTask = {
-      id: crypto.randomUUID(),
+      id: crypto.randomUUID().substring(0, 6),
       title,
       description,
       priority,
@@ -68,7 +68,7 @@ export class TaskService {
   }
 
   getAllTasks(): Task[] {
-    return this.getAllTasks();
+    return this.taskRepo.getAll();
   }
 
   deleteTask(taskid: string): boolean {

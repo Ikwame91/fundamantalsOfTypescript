@@ -1,0 +1,11 @@
+Summary of changes to simplify CLI commands:
+
+1. **Updated `package.json`:**
+   - Added a "bin" field to the `package.json` file.
+   - This field maps the command `task-manager` to the application's entry point (`dist/index.js`).
+
+2. **Linked the package:**
+   - Ran the `npm link` command.
+   - This command creates a symbolic link from the global node modules directory to the project, making the `task-manager` command available system-wide.
+
+As a result of these changes, the application can now be run with `task-manager <command>` instead of `node dist/index.js <command>`.
