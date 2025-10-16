@@ -50,16 +50,20 @@ export class TaskService {
     return inProgressTask;
   }
 
-  completeTask(taskId: string, actualHours: number): DoneTask | null {
+  completeTask(taskId: string): DoneTask | null {
     const task = this.taskRepo.findById(taskId);
     if (!task || !isInProgressTask(task)) {
       return null;
     }
 
+    const completedAt = new Date();
+    const duration = completedAt.getTime() - task.startedAt.getTime();
+    const actualHours = duration / (1000 * 60 * 60);
+
     const doneTask: DoneTask = {
       ...task,
       status: "done",
-      completedAt: new Date(),
+      completedAt,
       actualHours,
       updatedAt: new Date(),
     };

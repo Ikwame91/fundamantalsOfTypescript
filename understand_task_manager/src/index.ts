@@ -85,7 +85,7 @@ program
   .option("-a, --actual <hours>", "Actual hours spent")
   .action((taskId, options) => {
     const actualHours = options.actual ? parseInt(options.actual) : undefined;
-    const task = taskService.completeTask(taskId, actualHours!);
+    const task = taskService.completeTask(taskId, );
 
     if (task) {
       console.log(
