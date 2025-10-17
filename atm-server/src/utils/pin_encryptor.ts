@@ -1,7 +1,7 @@
 
 const ENCRYPTION_PREFIX = "encrypted_";
 
-export function encryptedPin(pin: string): string {
+export function encryptPin(pin: string): string {
   if (pin.length !== 4 || !/^\d+$/.test(pin)) {
     throw new Error("PIN must be a 4-digit numeric string");
   }

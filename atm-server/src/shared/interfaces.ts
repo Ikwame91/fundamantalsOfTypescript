@@ -15,8 +15,14 @@ export interface CardData{
 }
 
 export interface TransactionMessage {
-    type: 'WITHDRAWAL'| 'BALANCE_INQUIRY'
+    type: 'WITHDRAWAL' | 'BALANCE_INQUIRY';
     pan: string;
     encryptedPin: string;
     amount?: number;
+}
+
+export interface AuthorizationResponse{
+    success: boolean;
+    message: string;
+    newBalance?: number;
 }
