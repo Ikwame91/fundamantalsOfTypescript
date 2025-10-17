@@ -1,22 +1,21 @@
-import { findAccountByPan } from "../database/mock_db";
+import { findAccountByPan, updateAccountBalance } from "../database/mock_db";
 import {
   AuthorizationResponse,
   BankAccount,
   TransactionMessage,
 } from "../shared/interfaces";
-import { decryptPin } from "../utils/pin_encryptor";
+import * as bcrypt from "bcrypt";
 
 export class BankHostService {
-  public authorizeTransaction(
-    message: TransactionMessage
-  ): AuthorizationResponse {
+  public async authorizeTransaction(message: TransactionMessage): Promise<AuthorizationResponse> {
     const account = findAccountByPan(message.pan);
     if (!account) {
       return { success: false, message: "Account not found" };
     }
 
-    const decryptedPin = decryptPin(message.encryptedPin);
-    if (decryptedPin !== account.pinHash) {
+    //compare the provided pin with stored hash
+    const isPinValid = await bcrypt.compare(message.pin, account.pinHash);
+    if (!isPinValid) {
       return { success: false, message: "Invalid PIN" };
     }
 
@@ -26,7 +25,11 @@ export class BankHostService {
       case "WITHDRAWAL":
         return this.handleWithdrawal(account, message.amount);
       default:
-        return { success: false, message: "Unknown transaction type" };
+        const exhaustiveCheck: never = message.type;
+        return {
+          success: false,
+          message: `Unknown transaction type : ${exhaustiveCheck}};`,
+        };
     }
   }
 
@@ -49,7 +52,8 @@ export class BankHostService {
       return { success: false, message: "Insufficient funds" };
     }
 
-    account.balance -= amount;
+    const newBalance = account.balance -= amount;
+    updateAccountBalance(account.accountNumber,newBalance)
     return {
       success: true,
       message: "Withdrawal approved",

@@ -17,7 +17,7 @@ export interface CardData{
 export interface TransactionMessage {
     type: 'WITHDRAWAL' | 'BALANCE_INQUIRY';
     pan: string;
-    encryptedPin: string;
+    pin: string;
     amount?: number;
 }
 

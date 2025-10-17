@@ -8,18 +8,18 @@ const PORT = 3000;
 
 app.use(express.json());
 
-app.post("/authorize", (req, res) => {
+app.post("/authorize", async (req, res) => {
   console.log("[Bank Host] Received transaction request...");
   try {
     const message = req.body as TransactionMessage;
-    if (!message || !message.pan || !message.encryptedPin || !message.type) {
+    if (!message || !message.pan || !message.pin || !message.type) {
       return res.status(400).json({
-        success: false, // Corrected from true
+        success: false, 
         message: "Bad Request: Invalid transaction message format.",
       });
     }
 
-    const response = bankHost.authorizeTransaction(message);
+    const response = await bankHost.authorizeTransaction(message);
     console.log(`[Bank Host] Sending response: ${response.message}`);
     // Send 200 for success, 401 for failure
     res.status(response.success ? 200 : 401).json(response);
