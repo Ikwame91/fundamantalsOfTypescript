@@ -109,3 +109,148 @@ function countConstant(str: string): number {
   }
   return count;
 }
+
+function countVowelsAndConstants(str: string): {
+  vowels: number;
+  consonants: number;
+} {
+  const vowels = "aeiouAEIOU";
+  let vowelCount = 0;
+  let consonantsCount = 0;
+
+  for (let i = 0; i < str.length; i++) {
+    const char = str[i];
+    //check if its letter a-z or A-Z
+    if (/[a-zA-Z]/.test(char)) {
+      if (vowels.includes(char)) {
+        vowelCount++;
+      } else {
+        consonantsCount++;
+      }
+    }
+  }
+  return { consonants: consonantsCount, vowels: vowelCount };
+}
+
+// function countVowelsAndConstants(str: string): { vowels: number; consonants: number } {
+//     const vowelsSet = new Set('aeiouAEIOU');
+//     let vowelsCount = 0;
+//     let consonantsCount = 0;
+//     for (let i = 0; i < str.length; i++) {
+//         const char = str[i];
+//         if (/[a-zA-Z]/.test(char)) {
+//             if (vowelsSet.has(char)) {
+//                 vowelsCount++;
+//             } else {
+//                 consonantsCount++;
+//             }
+//         }
+//     }
+//     return { vowels: vowelsCount, consonants: consonantsCount };
+// }
+
+function sumEvenNumber(numbers: number[]): number {
+  let sum = 0;
+
+  for (let i = 0; i < numbers.length; i++) {
+    let evenSum = numbers[i];
+    if (evenSum % 2 === 0) {
+      sum += evenSum;
+    }
+  }
+  return sum;
+}
+
+function sumEvenNumber1(numbers: number[]): number {
+  return numbers
+    .filter((num) => num % 2 === 0)
+    .reduce((sum, num) => sum + num, 0);
+}
+
+function doubleEvenNumbers(numbers: number[]): number[] {
+  const doubledEvens: number[] = [];
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] % 2 === 0) {
+      doubledEvens.push(numbers[i] * 2);
+    }
+  }
+  return doubledEvens;
+}
+
+function doubledEvenNumber1(numbers: number[]): number[] {
+  return numbers.filter((num) => num % 2 === 0).map((num) => num * 2);
+}
+
+function reverseString(str: string): string {
+  let reversed = "";
+  for (let i = str.length - 1; i >= 0; i--) {
+    reversed += str[i];
+  }
+  return reversed;
+}
+
+function reverseString1(str: string): string {
+  return str.split("").reverse().join("");
+}
+
+function PalindromeString(str: string): boolean {
+  let reversed = "";
+  for (let i = str.length - 1; i >= 0; i--) {
+    reversed += str[i];
+  }
+  return str === reversed;
+}
+
+function mostfrequentCharacter(str: string): string {
+  const charCount: { [key: string]: number } = {};
+  let maxCount = 0;
+  let mostfrequentCharacter = "";
+
+  for (let i = 0; i < str.length; i++) {
+    const char = str[i];
+    //
+    charCount[char] = (charCount[char] || 0) + 1;
+    if (charCount[char] > maxCount) {
+      maxCount = charCount[char];
+      mostfrequentCharacter = char;
+    }
+  }
+  return mostfrequentCharacter;
+}
+
+function mostFrequentChar(str: string): string {
+  let mostFrequent = "";
+  let maxCount = 0;
+
+  for (let i = 0; i < str.length; i++) {
+    const char = str[i];
+    let count = 0;
+
+    for (let j = 0; j < str.length; j++) {
+      if (str[j] === char) {
+        count++;
+      }
+    }
+    if (count > maxCount) {
+      maxCount = count;
+      mostFrequent = char;
+    }
+  }
+  return mostFrequent;
+}
+
+
+// str = "aabb"
+// const charcount : { [key: string]: number } = {};
+// let maxcount =0;
+// for (let i=0; i< str.length; i++){
+//     const char = str[i];
+
+//     imagine char = "a" first loop
+//     initially charcount = {} completely empty
+//     so charcount['a'] is undefined
+//     charcount['a'] || 0 means if theres already a value for charcount['a'], 
+//     use it, otherwise use 0 s0 tthis becomes 
+//    charcount['a'] = 0 + 1 = 1
+
+//     charcount[char] = (charcount[char] || 0) +1;}
